@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def remove_the_char(str, n):
+def remove_char_at(str, n):
     removed = ''
     be = 0
     for c in str:
