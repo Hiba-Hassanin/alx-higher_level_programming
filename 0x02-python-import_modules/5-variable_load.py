@@ -1,5 +1,10 @@
 #!/usr/bin/python3
-from main import a
+import importlib.util
 
-if __name__ == "__main__":
-    print(a)
+spec = importlib.util.spec_from_file_location("main", "./main.py")
+
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+
+a = getattr(module, "a")
+print(a)
