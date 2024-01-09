@@ -3,23 +3,19 @@ from sys import argv, exit
 from calculator_1 import add, sub, mul, div
 
 def perform_operation(a, operator, b):
-    if operator == '+':
-        result = add(a, b)
-        operator_symbol = '+'
-    elif operator == '-':
-        result = sub(a, b)
-        operator_symbol = '-'
-    elif operator == '*':
-        result = mul(a, b)
-        operator_symbol = '*'
-    elif operator == '/':
-        result = div(a, b)
-        operator_symbol = '/'
+    operators = {
+        '+': add,
+        '-': sub,
+        '*': mul,
+        '/': div
+    }
+
+    if operator in operators:
+        result = operators[operator](a, b)
+        print(f"{a} {operator} {b} = {result}")
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
-
-    print(f"{a} {operator_symbol} {b} = {result}")
 
 if __name__ == '__main__':
     if len(argv) != 4:
