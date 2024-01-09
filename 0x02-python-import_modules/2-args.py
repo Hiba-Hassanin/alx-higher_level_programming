@@ -5,16 +5,16 @@ def print_arguments(arguments):
     num_arguments = len(arguments) - 1
 
     if num_arguments > 1:
-        print(f"{num_arguments} arguments:")
+        print("{:d} arguments:".format(num_arguments))
     elif num_arguments == 0:
-        print(f"{num_arguments} arguments.")
+        print("{:d} arguments.".format(num_arguments))
     else:
-        print(f"{num_arguments} argument:")
+        print("{:d} argument:".format(num_arguments))
 
     for i, argument in enumerate(arguments):
         if i == 0:
             continue
-        print(f"{i}: {argument}")
+        print("{:d}: {}".format(i, argument))
 
 if __name__ == "__main__":
     arguments = sys.argv
