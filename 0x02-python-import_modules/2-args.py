@@ -1,25 +1,21 @@
 #!/usr/bin/python3
+import sys
 
-if __name__ == '__main__':
-    import sys
+def print_arguments(arguments):
+    num_arguments = len(arguments) - 1
 
-    sys.argv.pop(0)
-
-    argvlength = len(sys.argv)
-    # The length of sys.argv gives the number of command-line arguments.
-
-    if (argvlength == 0):
-        # If there are no arguments, print "0 arguments.".
-        print("0 arguments.")
-    elif (argvlength == 1):
-        # If there is only one argument, print "1 argument:" and the argument itself.
-        print("1 argument:")
-        print("{:d}: {}".format(len(sys.argv), sys.argv[0]))
+    if num_arguments > 1:
+        print(f"{num_arguments} arguments:")
+    elif num_arguments == 0:
+        print(f"{num_arguments} arguments.")
     else:
-        # If there are multiple arguments, print "{:d} arguments:" and loop through the arguments.
-        print("{:d} arguments:".format(argvlength))
-        number = 1
-        for argument in sys.argv:
-            # Loop through the arguments and print each argument with its position.
-            print("{:d}: {}".format(number, argument))
-            number += 1
+        print(f"{num_arguments} argument:")
+
+    for i, argument in enumerate(arguments):
+        if i == 0:
+            continue
+        print(f"{i}: {argument}")
+
+if __name__ == "__main__":
+    arguments = sys.argv
+    print_arguments(arguments)
