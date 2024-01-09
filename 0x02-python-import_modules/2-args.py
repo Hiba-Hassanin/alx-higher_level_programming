@@ -1,21 +1,18 @@
 #!/usr/bin/python3
-import sys
-
-def print_arguments(arguments):
-    num_arguments = len(arguments) - 1
-
-    if num_arguments > 1:
-        print("{:d} arguments:".format(num_arguments))
-    elif num_arguments == 0:
-        print("{:d} arguments.".format(num_arguments))
-    else:
-        print("{:d} argument:".format(num_arguments))
-
-    for i, argument in enumerate(arguments):
-        if i == 0:
-            continue
-        print("{:d}: {}".format(i, argument))
-
 if __name__ == "__main__":
-    arguments = sys.argv
-    print_arguments(arguments)
+    import sys
+    i = len(sys.argv) - 1
+
+    if i == 0:
+        print("{} arguments.".format(i))
+    elif i == 1:
+        print("{} argument:".format(i))
+    else:
+        print("{} arguments:".format(i))
+
+    if i >= 1:
+        i = 0
+        for arg in sys.argv:
+            if i != 0:
+                print("{}: {}".format(i, arg))
+            i += 1
