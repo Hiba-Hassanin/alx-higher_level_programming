@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """
-Module 6-rectangle
 Defines a class Rectangle with private instance attributes width and height,
 and public instance methods for area, perimeter, and string representation.
 """
