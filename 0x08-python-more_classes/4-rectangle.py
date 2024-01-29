@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """
-Module 4-rectangle
 Defines a class Rectangle with private instance attributes width and height,
 and public instance methods for area, perimeter, and string representation.
 """
@@ -13,13 +12,13 @@ class Rectangle:
     """
 
     def __init__(self, width=0, height=0):
-        """Initializes the Rectangle instance."""
+        """The Rectangle instance."""
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """Retrieves the width."""
+        """The width."""
         return self.__width
 
     @width.setter
@@ -33,7 +32,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """Retrieves the height."""
+        """The height."""
         return self.__height
 
     @height.setter
@@ -56,37 +55,11 @@ class Rectangle:
         return 2 * (self.width + self.height)
 
     def __str__(self):
-        """Returns a string representation of the rectangle."""
+        """Returns a string representation."""
         if self.width == 0 or self.height == 0:
             return ""
         return "\n".join(["#" * self.width] * self.height)
 
     def __repr__(self):
-        """Returns a string representation of the rectangle for recreation."""
+        """Returns a string representation for recreation."""
         return "Rectangle({}, {})".format(self.width, self.height)
-
-
-if __name__ == "__main__":
-    my_rectangle = Rectangle(2, 4)
-    print(str(my_rectangle))
-    print("--")
-    print(my_rectangle)
-    print("--")
-    print(repr(my_rectangle))
-    print("--")
-    print(hex(id(my_rectangle)))
-    print("--")
-
-    # create new instance based on representation
-    new_rectangle = eval(repr(my_rectangle))
-    print(str(new_rectangle))
-    print("--")
-    print(new_rectangle)
-    print("--")
-    print(repr(new_rectangle))
-    print("--")
-    print(hex(id(new_rectangle)))
-    print("--")
-
-    print(new_rectangle is my_rectangle)
-    print(type(new_rectangle) is type(my_rectangle))
