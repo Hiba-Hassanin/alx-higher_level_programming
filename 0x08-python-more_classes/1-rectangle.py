@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """
-Module 1-rectangle
 Defines a class Rectangle with private instance attributes width and height.
 """
 
@@ -11,13 +10,13 @@ class Rectangle:
     """
 
     def __init__(self, width=0, height=0):
-        """Initializes the Rectangle instance."""
+        """The Rectangle instance."""
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """Retrieves the width."""
+        """The width."""
         return self.__width
 
     @width.setter
@@ -31,7 +30,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """Retrieves the height."""
+        """The height."""
         return self.__height
 
     @height.setter
