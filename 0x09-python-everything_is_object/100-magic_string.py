@@ -1,5 +1,6 @@
 #!/usr/bin/python3
+def magic_string():
+    return ", ".join(["BestSchool"] * magic_string.call_count)
 
-def magic_string(iterations=[0]):
-    iterations[0] += 1
-    return "BestSchool" + ", BestSchool" * (iterations[0] - 1) + "\n"
+
+magic_string.call_count = 0
