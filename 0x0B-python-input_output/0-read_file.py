@@ -5,7 +5,7 @@ def read_file(filename=""):
     Read and print the content of a text file to stdout.
 
     Args:
-        filename (str): The name of the text file to read.
+        filename (str): The name of the text file to read. Default is an empty string.
 
     Returns:
         None
