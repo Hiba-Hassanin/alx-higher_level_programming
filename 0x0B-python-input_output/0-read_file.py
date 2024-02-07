@@ -1,15 +1,9 @@
 #!/usr/bin/python3
 
 def read_file(filename=""):
-    """
-    Read and print the content of a text file to stdout.
+    """ function that reads a text file (UTF8) and prints it to stdout """
+    with open(filename, encoding='utf-8') as f:
+        print(f.read(), end="")
 
-    Args:
-        filename (str): The name of the text file to read. Default is an empty string.
-
-    Returns:
-        None
-    """
-    with open(filename, encoding='utf-8') as file:
-        print(file.read(), end='')
-
+if __name__ == "__main__":
+    read_file()
