@@ -1,0 +1,2 @@
+# Test case 1
+write_file("my_first_file.txt", "This School is so cool!\n")

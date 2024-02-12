@@ -1,0 +1,4 @@
+# Test case 1
+s = Square(13)
+print(s)
+print(s.area())

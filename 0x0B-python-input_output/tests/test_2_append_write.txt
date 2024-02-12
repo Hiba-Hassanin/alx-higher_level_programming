@@ -1,0 +1,2 @@
+# Test case 1
+append_write("file_append.txt", "This School is so cool!\n")
