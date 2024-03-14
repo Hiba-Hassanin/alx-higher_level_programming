@@ -1,7 +1,6 @@
 -- List all cities with their corresponding state names from the hbtn_0d_usa database
-USE hbtn_0d_usa;
-
-SELECT cities.id, cities.name, states.name
-FROM cities, states
-WHERE cities.state_id = states.id
-ORDER BY cities.id ASC;
+SELECT a.`id`, a.`name`, b.`name`
+  FROM `cities` AS a
+       INNER JOIN `states` AS b
+       ON a.`state_id` = b.`id`
+ ORDER BY a.`id`;
