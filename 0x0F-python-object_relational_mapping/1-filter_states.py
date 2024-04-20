@@ -1,43 +1,29 @@
 #!/usr/bin/python3
-"""Script to list all states with a name starting with N from the database hbtn_0e_0_usa"""
+"""Script to list all states with a name starting with N (upper N) from
+the database hbtn_0e_0_usa"""
 
 import MySQLdb
 from sys import argv
 
-
-def filter_states_by_name(username, password, database):
-    """Connects to MySQL server and lists states starting with 'N'"""
-
+if __name__ == "__main__":
     # Connect to MySQL server
-    db = MySQLdb.connect(host="localhost",
-                         user=username,
-                         passwd=password,
-                         db=database)
-
+    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
+                         passwd=argv[2], db=argv[3], charset="utf8")
     # Create a cursor object using cursor() method
-    cursor = db.cursor()
+    cur = db.cursor()
 
     # Execute SQL query to select states starting with 'N'
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
 
-    # Fetch all the rows in a list of lists
-    results = cursor.fetchall()
+    # Fetch all the rows in a list of tuples
+    rows = cur.fetchall()
 
     # Print results
-    for row in results:
-        print(row)
+    for row in rows:
+        if row[1].startswith('N'):
+            print(row)
 
-    # Disconnect from server
+    # Close cursor and database connection
+    cur.close()
     db.close()
 
-
-if __name__ == "__main__":
-    # Accept command line arguments
-    if len(argv) != 4:
-        print("Usage: {} <username> <password> <database>".format(argv[0]))
-        exit(1)
-
-    username, password, database = argv[1:]
-
-    # Call the function to filter states by name
-    filter_states_by_name(username, password, database)
