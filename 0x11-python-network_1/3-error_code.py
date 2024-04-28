@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """
-Script that sends a request to a URL, displays the body of the response (decoded in utf-8),
-and handles urllib.error.HTTPError exceptions by printing the HTTP status code.
+Script that sends a request to a URL,
+displays the body of the response (decoded in utf-8),
+and handles urllib.error.HTTPError exceptions
+by printing the HTTP status code.
 """
 
 import urllib.request
