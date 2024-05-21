@@ -1,15 +1,11 @@
 #!/usr/bin/node
-
 // Import the 'fs' module to work with the file system
 const fs = require('fs');
-
-// Read the file specified in the command line arguments
-fs.readFile(process.argv[2], 'utf-8', (err, data) => {
+const file = process.argv[2];
+const content = process.argv[3];
+fs.writeFile(file, content, 'utf-8', function (err) {
   if (err) {
-    // If an error occurred while reading the file, log the error message
+  // If an error occurred while reading the file, log the error message
     console.log(err);
-  } else {
-    // If the file was read successfully, log its contents
-    console.log(data.toString());
   }
 });
