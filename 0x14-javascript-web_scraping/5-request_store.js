@@ -1,21 +1,13 @@
 #!/usr/bin/node
 
-const request = require('request');
+// Import required modules
 const fs = require('fs');
+const request = require('request');
 
-const url = process.argv[2];
-const filePath = process.argv[3];
+// Get the source URL and destination file path from command line arguments
+const sourceURL = process.argv[2];
+const destinationFilePath = process.argv[3];
 
-request(url, function (error, response, body) {
-  if (!error && response.statusCode === 200) {
-    fs.writeFile(filePath, body, { encoding: 'utf-8' }, function (err) {
-      if (err) {
-        console.error('Error writing to file:', err);
-      } else {
-        console.log('File saved successfully!');
-      }
-    });
-  } else {
-    console.error('Error requesting the webpage:', error);
-  }
-});
+// Make a request to the source URL and pipe the response to a writable stream
+request(sourceURL)
+  .pipe(fs.createWriteStream(destinationFilePath));
